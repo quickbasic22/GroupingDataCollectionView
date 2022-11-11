@@ -10,6 +10,20 @@
     <StackLayout>
         <Label Text="Grouped Data Demo" FontSize="28" />
 
-        
+        <CollectionView IsGrouped="True" ItemsSource="{Binding Employees}">
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate x:DataType="models:EmployeeGroup">
+                    <Label Text="{Binding GroupTitle}" FontSize="28" />
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:EmployeeModel">
+                    <Frame Padding="10" Margin="0, 5, 0, 5">
+                        <Label Text="{Binding FullName}" FontSize="18" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </StackLayout>
 </ContentPage>
